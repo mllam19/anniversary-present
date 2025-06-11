@@ -1,0 +1,142 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+    <meta charset="UTF-8">
+    <title>
+        anniversary present
+    </title>
+    <style>
+        body{
+            background: #b5a6ff;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        h1{
+            color: #8c6fc5
+        }
+        #car{
+            position: absolute;
+            top: 160px;
+            left: -300px;
+            transition: left 3s ease-in-out;
+        }
+        #message {
+            margin-top: 270px;
+            font-size: 1.2em;
+            display: none;
+            color: #ffe3f7;
+        }
+        #start-btn {
+            background: #ffc7fe;
+            color: rgb(122, 27, 103);
+            padding: 5px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        #lyric{
+            margin-top: 10px;
+            font-style:italic;
+            color: #530f70;
+
+        }
+        #slideshow {
+            width: 80%;
+            max-width: 500px;
+            margin: 30px auto;
+            border: 5px solid #e0c8ff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          }
+          
+          #slideshow img {
+            width: 100%;
+            border-radius: 10px;
+            transition: opacity 3s ease-in-out;
+          }
+          
+    </style>
+</head>   
+
+<body>
+    <h1>˚ʚ♡ɞ˚ to my cutie patootie ˚ʚ♡ɞ˚</h1>
+    <button id="start-btn"> click me!</button>
+    <div id="car"> 🚙💨 woosh </div>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6DYwXcXSC16IUWBnS2UBmQ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <a href="https://open.spotify.com/playlist/6DYwXcXSC16IUWBnS2UBmQ" 
+   target="_blank" style="
+   display:inline-block;
+   padding: 10px 20px;
+   background: #ddffe9;
+   color: rgb(0, 52, 15);
+   border-radius: 20px;
+   text-decoration: none;
+   font-weight: bold;
+   font-family: monospace;">
+   listen to our playlist here too!
+</a>
+
+<h2 style="color:#eedcf9;"> memories & stuff </h2>
+
+<div id="slideshow">
+    <img class="slide" src="img1.jpg" style="display: block;">
+    <img class="slide" src="img2.jpg" style="display: none;">
+    <img class="slide" src="img3.jpg" style="display: none;">
+    <img class="slide" src="img4.jpg" style="display: none;">
+  </div>
+  
+
+    <div id="message">
+
+        <div id='lyric'> <p>lyric drawn:</p></div>
+        <p> to my favorite mustang boy in the planet,</p>
+        <p>happy four year anniversary! even if i am backseat driving or nailing on you </p>
+        <p> for your spelling, or watching the clone wars spending more time asking questions than actually watching the show, i love and cherish every moment i am with you.</p>
+        <p>i'll love you forever,</p>
+        <p><br>sita bonita 💫 </p>
+
+    </div>
+
+    <script>
+        const lyrics = [
+        "God only knows what I'd be without you",
+        "Don't worry baby, everything will turn out alright",
+        "In my life, I love you more",
+        "The night we met I knew I needed you so",
+        "And if I had the chance I'd never let you go",
+        "There is no one compares with you",
+        "I only have eyes for you",
+        "I've got sunshine, on a cloudy day"
+      ];
+  
+      const startBtn = document.getElementById('start-btn');
+      const car = document.getElementById('car');
+      const message = document.getElementById('message');
+      const lyric = document.getElementById('lyric');
+  
+      startBtn.addEventListener('click', () => {
+        car.style.left = '100%';
+        startBtn.style.display = 'none';
+        setTimeout(() => {
+          lyric.textContent = '♫⋆｡♪ ₊˚♬ ﾟ' + lyrics[Math.floor(Math.random() * lyrics.length)] + '♫⋆｡♪ ₊˚♬ ﾟ';
+          message.style.display = 'block';
+        }, 3000);
+      }); 
+
+      let current = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        setInterval(() => {
+        slides[current].style.display = 'none';
+        current = (current + 1) % slides.length;
+        slides[current].style.display = 'block';
+        }, 3000); // changes every 3 seconds
+
+    </script>
+</body>
+
+</html>
